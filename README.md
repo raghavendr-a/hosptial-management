@@ -3,8 +3,8 @@ Developer - Nihar Raghavendra
 ---
 
 
-### Screen Shots
-## Home-Page
+## Screen Shots
+### Home-Page
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/home.png?raw=true)
 ### Doctor-Dashboard
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doctor%20dashboard.png?raw=true)
