@@ -57,8 +57,8 @@
 - Install Python(3.8) 
 - Open Terminal and Execute Following Commands :
 ```
-pip install flask
-pip install flask_login
+pip install Flask
+pip install Flask-Login
 
 ```
 - Download This Project Zip Folder and Extract it
