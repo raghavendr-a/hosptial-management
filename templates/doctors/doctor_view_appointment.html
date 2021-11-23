@@ -1,0 +1,124 @@
+{% extends 'doctors/doctor_base.html' %}
+{% block content %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Appointments</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Patient Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Patient Description</th>
+          <th>Mobile</th>
+          <th>Current Prescription</th>
+          <th>Diagnosis</th>
+          <th>New Prescription</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in appointments %}
+        {% if i[3] == 'Out-Patient' %}
+        <tr class="table-all table-outpatient">
+            <td>{{i[0]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+            <td>{{i[10]}}</td>
+            <td>{{i[7]}}</td>
+            <td>{{i[9]}}</td>
+            {% if i[8] %}
+            <td id='p{{i[0]}}' >{{i[8]}}</td>
+            {% else %}
+            <td>No prescription</td>
+            {% endif %}
+            <td><textarea id="d{{i[0]}}">{{i[14]}}</textarea></td>
+           
+            <td>
+      <textarea name="" id="{{i[0]}}" cols="" rows="">{{i[8]}}</textarea>
+            </td>
+            <td> <button data-id="{{i[0]}}" onclick="save_prescription(this.getAttribute('data-id'))" type="button" class="btn btn-primary">save</button></td>
+        </tr>
+        {% else %}
+        <tr class="table-all table-inpatient">
+          <td>{{i[0]}}</td>
+          <td>{{i[4]}}</td>
+          <td>{{i[5]}}</td>
+          <td>{{i[-2]}}</td>
+          <td>{{i[7]}}</td>
+          <td>{{i[-4]}}</td>
+          <td>{{i[6]}}</td>
+          <td>{{i[3]}}</td>
+          <td> {{i[0]}}</td>
+      </tr>
+
+        {% endif %}
+        
+      {% endfor %}
+      
+    </tbody>
+    </table>
+
+    
+  </div>
+</div>
+<script>
+  function save_prescription(id){
+  
+   val = document.getElementById(id).value
+   diag = document.getElementById('d'+id).value
+  
+   if(val){
+
+   data = {
+     id:id,
+    prescription:val,
+    diagnosis:diag
+  }
+
+   $.ajax({
+  type: "POST",
+  url: '/update-prescription',
+  data: JSON.stringify(data),
+  contentType: "application/json",
+
+  success: function(data){
+    toastr.success("data updated sucessfully", "Updated")
+    m = document.getElementById("p"+data.id)
+    m.innerText = data.prescription
+  }
+});
+   }
+   else{
+    toastr.error('Enter data',{timeOut: '1000'})
+   }
+  }
+</script>
+
+{% endblock content %}

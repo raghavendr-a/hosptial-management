@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Registration</title>
+  <link rel="stylesheet" href="./static/style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Formicon-Flat Forms Pack</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./static/styles.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
+		
+	</head>
+	<style>
+			body{
+				background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('static/pati.jpg');
+				background-size: cover;
+				
+			}
+	</style>
+	<body>
+		<div class="wrapper fadeInDown"></div>
+		<!-- Register Form -->
+		<div class="form-wrapper"> <!-- Form-wrapper only for positioning -->
+			<form action="/create_patient_account" method="post" class="fcorn-register container" enctype='multipart/form-data'>
+				<center><h1 class="register-info" >Patient Registration</h1></center>
+				<p class="register-info">Note: All fields are required.</p>
+				<div class="row">
+					<p class="col-md-12"><input type="text" name='name' placeholder="Full Name" required></p>
+					<p class="col-md-6"><select style="background-color: white;" name="gender" aria-placeholder="gender">
+						<option value="" disabled selected>Gender</option>
+						<option value="M">M</option>
+						<option value='F'>F</option>
+					</select></p>
+					<p class="col-md-6"><input  type="number" min="1" max="100" name='age' placeholder="age" required></p>
+				
+				</div>
+				<p><input type="email" name='email' placeholder="Email Address" required>
+				   <span class="extern-type">We'll keep this private.</span>
+				</p>
+				<p><input type="password" name="password" placeholder="Password" required>
+					<span class="extern-type">Atleast 8 characters long.</span>
+				</p>
+				<p><input type="tel" name="phnum" placeholder="Phonenumber" required>
+					<span class="extern-type">should be 10 characters long.</span>
+				</p>
+				
+				<div class="row">
+				
+					
+          		<div> 
+            <p class="col-xs-12">
+              <input type="file"  accept="image/*" name="img" id="fileToUpload">
+              
+           </p>
+				</div>
+          <br/>
+			
+				<p class="register-submit"><input type="submit" value="Register Now"></p>
+			</form>
+    </div>
+</div>
+    
+    
+	
+
+
+
+
+	</body>
+</html>
+>
+  <script  src="static/script.js"></script>
+
+</body>
+</html>

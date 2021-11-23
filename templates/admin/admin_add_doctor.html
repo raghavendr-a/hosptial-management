@@ -1,0 +1,82 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+
+
+
+
+  <link rel="stylesheet" href="./static/style.css">
+
+
+
+
+		<meta charset="utf-8">
+		<title>Formicon-Flat Forms Pack</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./static/styles.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
+		
+
+    <br>
+
+<div>
+		<div class="form-wrapper"> 
+			<form action="/admin-add-doctor" method="post" class="fcorn-register container" enctype='multipart/form-data'>
+				<center><h1 class="register-info" >Doctor Registration</h1></center>
+				<p class="register-info">Note: All fields are required.</p>
+				<div class="row">
+					<p class="col-md-12"><input type="text" name='name' placeholder="Full Name" required></p>
+					<p class="col-md-6"><select style="background-color: white;" name="gender" aria-placeholder="gender">
+						<option value="" disabled selected>Gender</option>
+						<option value="M">M</option>
+						<option value='F'>F</option>
+					</select></p>
+					<p class="col-md-6"><input  type="number" min="1" max="100" name='age' placeholder="age" required></p>
+          <p class="col-md-6"><input type="text" name='speciality' placeholder="Speciality" required></p>
+          <p class="col-md-6"><input type="number" name='exp'min="1" max="50" placeholder="Experiance" required></p>
+          <p class="col-md-12"><input type="text" name='schedule' placeholder="Schedule" required></p>
+
+				</div>
+				<p><input type="email" name='email' placeholder="Email Address" required>
+				   
+				</p>
+				<p><input type="password" name="password" placeholder="Password" required>
+					
+				</p>
+				<p><input type="tel" name="phnum" placeholder="Phonenumber" required>
+					
+				</p>
+				
+				<div class="row">
+				
+					
+          		<div> 
+            <p class="col-xs-12">
+              <input type="file"  accept="image/*" name="img" id="fileToUpload">
+              
+           </p>
+				</div>
+          <br/>
+			
+				<p class="register-submit"><input type="submit" value="Register Now"></p>
+			</form>
+    </div>
+  </div>
+</div>
+    
+    
+	
+
+
+
+	</body>
+</html>
+
+  <script  src="static/script.js"></script>
+
+
+
+
+{% endblock content %}

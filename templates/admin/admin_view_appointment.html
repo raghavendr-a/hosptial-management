@@ -1,0 +1,77 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>\
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Appointments</h6>
+    </div><table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Doctor Name</th>
+          <th>Doctor Speciality</th>
+          <th>Patient Name</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Delete Appointment</th>
+        </tr>
+      </thead>
+      {% for a in apts %}
+      <tr id="a{{a[0]}}" >
+        <td> {{a[1]}}</td>
+        <td> {{a[2]}}</td>
+        <td>{{a[4]}}</td>
+        <td>{{a[7]}}</td>
+        <td>{{a[12]}}</td>
+        <td><button class="btn btn-danger btn-xs" data-aptid="{{a[0]}}" onclick="delete_appointment(this.getAttribute('data-aptid'))" ><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<script>
+  function delete_appointment(id){
+    data = {
+      id:id
+    }
+    $.ajax({
+  type: "POST",
+  url: '/delete-appointment',
+  data: JSON.stringify(data),
+  contentType: "application/json",
+
+  success: function(data){
+    toastr.success("Appointment deleted sucessfully", "DELETED")
+    tr = document.getElementById('a'+id)
+    tr.setAttribute('style','display:none;')
+    
+  }
+});
+   }
+  
+  
+</script>
+{% endblock content %}

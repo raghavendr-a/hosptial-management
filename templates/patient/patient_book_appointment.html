@@ -1,0 +1,106 @@
+{% extends 'patient/patient_base.html' %}
+
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<br><br>
+{% if message %}
+<script>
+  var a = "{{message}}";
+  alert(a);
+</script>
+
+{% endif %}
+
+
+<!------ add appointment page by patient(sumit)  ---------->
+<form method="post" action="/add-appointment">
+  
+  <div class="container register-form">
+    <div class="form"  >
+      <div class="note">
+        <p>Book Appointment Details</p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+            <div class="form-group" style="display: grid;grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;">
+              
+    
+              <div >
+                      <label for="doctor">Specialist Required</label>
+                      <select name='doctor' class="form-control" aria-label="Default select example" id="doctor">
+                        {% for i in docs %}
+                        <option value="{{ i[0]+'<SEP>'+i[1]+'<SEP>'}}{{i[-2]}}">DR.{{i[0]+','+i[1]}}</option>
+                        {% endfor %}
+                      </select>
+               
+              </div>
+              <div style="grid-column: 1/ span 2 ;">
+                <label for="Symptoms">Symptoms</label>
+              <textarea class="form-control"  id='Symptoms' name="diagnosis" rows="2"></textarea>
+              
+            </div>
+            </div>
+            
+            <input type="submit" class="btnSubmit" value="Book">
+            
+          </div>
+
+
+          </div>
+
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+
+
+
+
+  <link rel="stylesheet" href="./static/style.css">
+
+
+
+
+		<meta charset="utf-8">
+		<title>Formicon-Flat Forms Pack</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./static/styles.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600' rel='stylesheet' type='text/css'>
+		
+
+    <br>
+
+<div>
+		<div class="form-wrapper"> 
+			<form action="/admin-add-inpatient" method="post" class="fcorn-register container" enctype='multipart/form-data'>
+				<center><h1 class="register-info" >In-Patient Registration</h1></center>
+				<p class="register-info">Note: All fields are required.</p>
+				<div class="row">
+					<p class="col-md-12"><input type="text" name='name' placeholder="Patient's Full Name" required></p>
+					<p class="col-md-6"><select style="background-color: white;" name="gender" aria-placeholder="gender">
+						<option value="" disabled selected>Gender</option>
+						<option value="M">M</option>
+						<option value='F'>F</option>
+					</select></p>
+					<p class="col-md-6"><input  type="number" min="1" max="100" name='age' placeholder="age" required></p>
+				
+				</div>
+				
+				
+				<div class="row">
+					
+					<p class="col-md-12"><input type="email" name='email' placeholder="Email Address" required>
+					<p class="col-md-12"><input  type="text" name='phnum' placeholder="Patient's Phonenumber" required></p>
+					
+					<p class="col-md-6">Doctor<select style="background-color: white;" name="doc" aria-placeholder="">
+						<option value="" disabled selected>Doctor</option>
+						{% for doc in docs %}
+						<option value="{{doc[6]}}">{{doc[0]}},{{doc[1]}}</option>
+						{% endfor %}
+					</select></p>
+				
+					<p class="col-md-6">Admision Date<input  type="date" name='date' placeholder='' required> </p>
+					<p class="col-md-12"><input  type="text" name='diagnosis' placeholder='Diagnosis' required></p>
+					<p class="col-md-12"><input  type="text" name='prescription' placeholder='Prescription' required></p>
+				
+					
+          		<div> 
+					 
+            <p class="col-md-12"> 
+				<label class="col-md-6" for="fileToUpload">Patient Report</label>
+              <input type="file"  accept="pdf/*" name="img" id="fileToUpload">
+              
+           </p>
+				</div>
+          <br/>
+			
+				<p class="register-submit"><input type="submit" value="Register Now"></p>
+			</form>
+    </div>
+  </div>
+</div>
+    
+    
+	
+
+
+
+	</body>
+</html>
+
+  <script  src="static/script.js"></script>
+
+
+
+
+{% endblock content %}

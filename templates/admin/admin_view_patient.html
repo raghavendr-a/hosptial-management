@@ -1,0 +1,88 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>\
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Patient</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Patient Type</th>
+          <th>Mobile</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for p in patient %}
+      <tr id=p{{p[0]}} >
+        <td> {{p[0]}}</td>
+        <td>{{p[2]}}</td>
+        <td>{{p[4]}}</td>
+        <td>{{p[3]}}</td>
+        <td>{{p[9]}}</td>
+        <td>{{p[5]}}</td>
+        <td><button class="btn btn-danger btn-xs" data-pId="{{p[0]}}" onclick="delete_patient(this.getAttribute('data-pId'))" ><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<script>
+  function delete_patient(id){
+    data = {
+      id:id
+    }
+    $.ajax({
+  type: "POST",
+  url: '/delete-patient',
+  data: JSON.stringify(data),
+  contentType: "application/json",
+
+  success: function(data){
+    if(data != 'error' ){
+    toastr.success("Patient deleted sucessfully", "DELETED")
+    tr = document.getElementById('p'+id)
+    tr.setAttribute('style','display:none;')
+    }
+    else{
+      toastr.console.error();("Unable to delete patient", "Error")
+
+    }
+  }
+});
+   }
+  
+  
+</script>
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% extends 'doctors/doctor_base.html' %}
+{% block content %}
+
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">In-Patients</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Patient ID</th>
+          <th>Patient Name</th>
+          <th>Diagnosis</th>
+          <th>Prescription</th>
+        
+          <th>Admission date</th>
+          <th>Report</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in inpatient %}
+        <tr class="table-all table-outpatient">
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            
+            <td>{{i[7]}}</td>
+            
+            <td><button class="btn btn-info" data-pdf="{{bs(i[8]).decode("utf-8")}}" onclick="viewPdf(this.getAttribute('data-pdf'))">View Report</button></td>
+           
+            <td>
+                
+            </td>
+        </tr>
+ 
+
+      
+      {% endfor %}
+      
+    </tbody>
+    </table>
+
+    
+  </div>
+</div>
+<script>
+    function viewPdf(data){
+        let pdfWindow = window.open("")
+          
+        pdfWindow.document.write(
+    "<iframe width='100%' height='100%' src='data:application/pdf;base64, " +
+    data + "'></iframe>"
+)
+    }
+</script>
+{% endblock content %}
