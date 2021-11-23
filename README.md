@@ -12,9 +12,9 @@
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doc-app.png?raw=true)
 ### Doctor-View-InPatients
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doc-inp.png?raw=true)
-### Patient-Dashboard
+### Out-Patient-Dashboard
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/patient-dahboard.png?raw=true)
-### Patient-Book-Appointment
+### Out-Patient-Book-Appointment
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/book-appo.png?raw=true)
 ### Admin-Dashboard
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin_dashboard.png?raw=true)
