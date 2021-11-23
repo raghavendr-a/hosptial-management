@@ -16,6 +16,16 @@ Home-Page
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/patient-dahboard.png?raw=true)
 ### Patient-Book-Appointment
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/book-appo.png?raw=true)
+### Admin-Dashboard
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin_dashboard.png?raw=true)
+### Admin-View-Doctors
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-all-doc.png?raw=true)
+### Admin-All-Patients
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-all-patients.png?raw=true)
+### Admin-Add-InPatients
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-add-inp.png?raw=true)
+### Admin-Add-Appointments
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-appo.png?raw=true)
 
 
 ### Admin
