@@ -3,6 +3,11 @@ Developer - Nihar Raghavendra
 ---
 
 
+##Screen Shots
+Home-Page
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/home.png?raw=true)
+
+
 ### Admin
 - Signup their account. Then Login .
 - Can register/view/delete doctor .
