@@ -1,5 +1,5 @@
 # Hospital Management
-Developer - Raghavendra
+
 ---
 
 
