@@ -6,8 +6,16 @@ Developer - Nihar Raghavendra
 ### Screen Shots
 Home-Page
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/home.png?raw=true)
-Doctor-Dashboard
+### Doctor-Dashboard
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doctor%20dashboard.png?raw=true)
+### Doctor-Appointments
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doc-app.png?raw=true)
+### Doctor-View-InPatients
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/doc-inp.png?raw=true)
+### Patient-Dashboard
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/patient-dahboard.png?raw=true)
+### Patient-Book-Appointment
+![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/book-appo.png?raw=true)
 
 
 ### Admin
