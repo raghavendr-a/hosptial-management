@@ -24,7 +24,7 @@
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-all-patients.png?raw=true)
 ### Admin-Add-InPatients
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-add-inp.png?raw=true)
-### Admin-Add-Appointments
+### Admin-All-Appointments
 ![Home page](https://github.com/raghavendr-a/hosptial-management/blob/main/ss/admin-appo.png?raw=true)
 
 
